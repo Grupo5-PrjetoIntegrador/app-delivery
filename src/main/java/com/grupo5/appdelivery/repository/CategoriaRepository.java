@@ -7,8 +7,8 @@ import org.springframework.data.repository.query.Param;
 
 import com.grupo5.appdelivery.model.Categoria;
 
-public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
-	
-	public List <Categoria> findaAllByNome(@Param("nome") String nome);
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
+
+	public List<Categoria> findAllByCategoriaContainingIgnoreCase(@Param("categoria") String categoria);
 
 }
