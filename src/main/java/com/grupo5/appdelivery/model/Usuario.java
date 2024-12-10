@@ -71,5 +71,6 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
+	// Linha adicionada para fins de teste
 	
 }
