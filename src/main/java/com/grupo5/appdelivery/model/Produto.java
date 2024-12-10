@@ -30,8 +30,8 @@ public class Produto {
 	@NotNull(message = "O atributo preço é obrigatório!")
 	private BigDecimal preco;
 	
-	@NotNull(message = "O atributo estoque é obrigatório!")
-	private Integer estoque;
+	@NotNull(message = "O atributo quantidade é obrigatório!")
+	private Integer quantidade;
 
 	public Long getId() {
 		return id;
@@ -65,12 +65,12 @@ public class Produto {
 		this.preco = preco;
 	}
 
-	public Integer getEstoque() {
-		return estoque;
+	public Integer getQuantidade() {
+		return quantidade;
 	}
 
-	public void setEstoque(Integer estoque) {
-		this.estoque = estoque;
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
 	}
 	
 	
