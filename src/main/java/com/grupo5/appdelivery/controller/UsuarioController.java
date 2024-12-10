@@ -77,3 +77,8 @@ public class UsuarioController {
  	}
 
 }
+
+	//A Classe Controller da Entidade Usuário foi criada 
+	// apenas com os métodos básicos de CRUD
+	// Podendo evoluir futuramente com a implementação da Classe Service da entidade 
+	// e da camada de segurança da aplicação
