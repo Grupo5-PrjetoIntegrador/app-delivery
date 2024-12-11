@@ -18,6 +18,7 @@ public class ProdutoService {
 
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	
 
 	public Optional<Produto> cadastrarProduto(Produto produto) {
 
@@ -54,11 +55,20 @@ public class ProdutoService {
 		}
 	}
 
-	public List<Produto> recomendarProdutosSaudaveis() {
+	/*public List<Produto> recomendarProdutosSaudaveis() {
 		List<Produto> todosProdutos = produtoRepository.findAll();
 
 		return todosProdutos.stream().filter(produto -> produto.getCategoria() != null
 				&& "saudável".equalsIgnoreCase(produto.getCategoria().getCategoria())).collect(Collectors.toList());
-	}
+	}*/
+	
+	public List<Produto> recomendarProdutosSaudaveis() {
+        List<Produto> todosProdutos = produtoRepository.findAll();
+
+        return todosProdutos.stream()
+                .filter(produto -> produto.getCategoria() != null
+                        && "saudável".equalsIgnoreCase(produto.getCategoria().getCategoria()))
+                .collect(Collectors.toList());
+    }
 
 }

@@ -14,13 +14,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.grupo5.appdelivery.model.Categoria;
 import com.grupo5.appdelivery.model.Produto;
 import com.grupo5.appdelivery.repository.CategoriaRepository;
 import com.grupo5.appdelivery.repository.ProdutoRepository;
+import com.grupo5.appdelivery.service.ProdutoService;
 
 import jakarta.validation.Valid;
 
@@ -31,6 +34,12 @@ public class ProdutoController {
 
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	
+	private final ProdutoService produtoService;
+
+    public ProdutoController(ProdutoService produtoService) {
+        this.produtoService = produtoService;
+    }
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
@@ -50,6 +59,17 @@ public class ProdutoController {
 	public ResponseEntity<List<Produto>> getByNome(@PathVariable String nome) {
 		return ResponseEntity.ok(produtoRepository.findAllByNomeContainingIgnoreCase(nome));
 	}
+	
+	@GetMapping("/recomendados/saudaveis")
+    public ResponseEntity<List<Produto>> recomendarProdutosSaudaveis() {
+        List<Produto> produtosSaudaveis = produtoService.recomendarProdutosSaudaveis();
+
+        if (produtosSaudaveis.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Retorna 204 se não houver produtos saudáveis
+        }
+
+        return ResponseEntity.ok(produtosSaudaveis); // Retorna 200 com a lista de produtos saudáveis
+    }
 
 	@PostMapping
 	public ResponseEntity<Produto> post(@Valid @RequestBody Produto produto) {
