@@ -17,7 +17,7 @@
 ## Descrição :black_nib:
 O projeto Gen Delivery traz em si a implementação de uma plataforma de delivery para alimentos saudáveis com métodos básicos de CRUD para o cadastro, atualização, remoção e busca de produtos e categorias e o método personalizado de recomendação de produtos saudáveis. Contém três entidades principais que formam um relacionamento entre si no banco de dados, sendo elas: Usuário, Produto e Categoria.
 
-## <a href="https://docs.google.com/document/d/1q3HLULRjWhPCwoeAbJt-G4zGCslZ175vRy5GataaZLM/edit?tab=t.0">Escopo do Projeto</a>
+## [Escopo Projeto](docs/escopo-projeto.pdf)
 
 ## Entidades e Atributos :card_file_box:  
 1. **Usuário**:
